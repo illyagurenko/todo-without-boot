@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>to do</title>
+    <link rel="stylesheet" href="/resources/css/main-page.css">
 </head>
 <body>
     <h1>hello</h1>
