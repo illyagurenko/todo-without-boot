@@ -13,7 +13,7 @@
                 <h2>ToDo List</h2>
             </div>
             <div class="header__statistics">
-                <span>${numberOfActiveRecords} more to do, ${numberOfDoneRecords} done</span>
+                <span>${numOfActiveTasks} more to do, ${numOfDoneTasks} done</span>
             </div>
         </div>
         <div class="filter-container">
@@ -33,11 +33,11 @@
                 <button type="submit">Apply</button>
             </form>
         </div>
-        <div class="records-container">
-            <div class="record">
-                <div class="record__title"><span>Take a shower</span></div>
-                <div class="record__controls">
-                    <form class="record__controls-form">
+        <div class="tasks-container">
+            <div class="">
+                <div class="task__title"><span>Take a shower</span></div>
+                <div class="task__controls">
+                    <form class="task__controls-form">
                         <button type="submit" class="button_type_approve">
                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_258_5036)">
@@ -51,7 +51,7 @@
                             </svg>
                         </button>
                     </form>
-                    <form class="record__controls-form">
+                    <form class="task__controls-form">
                         <button type="submit" class="button_type_close">
                             <svg width="24" height="24" viewBox="0 0 24 24">
                                 <path d="M12.071 13.485l-2.828 2.829-1.415-1.415 2.829-2.828-2.829-2.828 1.415-1.415 2.828 2.829L14.9 7.828l.707.708.707.707-2.829 2.828 2.829 2.829-1.415 1.414-2.828-2.829z" fill="#000"></path>
@@ -60,10 +60,10 @@
                     </form>
                 </div>
             </div>
-            <div class="record">
-                <div class="record__title"><span class="record__title_strikethrough">Buy flowers</span></div>
-                <div class="record__controls">
-                    <form class="record__controls-form">
+            <div class="task">
+                <div class="task__title"><span class="task__title_strikethrough">Buy flowers</span></div>
+                <div class="task__controls">
+                    <form class="task__controls-form">
                         <button type="submit" class="button_type_close">
                             <svg width="24" height="24" viewBox="0 0 24 24">
                                 <path d="M12.071 13.485l-2.828 2.829-1.415-1.415 2.829-2.828-2.829-2.828 1.415-1.415 2.828 2.829L14.9 7.828l.707.708.707.707-2.829 2.828 2.829 2.829-1.415 1.414-2.828-2.829z" fill="#000"></path>
@@ -72,10 +72,10 @@
                     </form>
                 </div>
             </div>
-            <div class="record">
-                <div class="record__title"><span>Go to the gym</span></div>
-                <div class="record__controls">
-                    <form class="record__controls-form">
+            <div class="task">
+                <div class="task__title"><span>Go to the gym</span></div>
+                <div class="task__controls">
+                    <form class="task__controls-form">
                         <button type="submit" class="button_type_approve">
                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_258_5036)">
@@ -89,7 +89,7 @@
                             </svg>
                         </button>
                     </form>
-                    <form class="record__controls-form">
+                    <form class="task__controls-form">
                         <button type="submit" class="button_type_close">
                             <svg width="24" height="24" viewBox="0 0 24 24">
                                 <path d="M12.071 13.485l-2.828 2.829-1.415-1.415 2.829-2.828-2.829-2.828 1.415-1.415 2.828 2.829L14.9 7.828l.707.708.707.707-2.829 2.828 2.829 2.829-1.415 1.414-2.828-2.829z" fill="#000"></path>
@@ -102,7 +102,7 @@
         <div class="management-container">
             <form class="management-form">
                 <input type="text" name="title" placeholder="What needs to be done..." class="management-form__input">
-                <button type="submit" class="management-form__button">Add Record</button>
+                <button type="submit" class="management-form__button">Add task</button>
             </form>
         </div>
     </div>
