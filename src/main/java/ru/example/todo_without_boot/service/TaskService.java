@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.example.todo_without_boot.dao.TaskDao;
 import ru.example.todo_without_boot.entity.Task;
+import ru.example.todo_without_boot.entity.TaskStatus;
 
 import java.util.List;
 
@@ -18,5 +19,8 @@ public class TaskService {
 
     public List<Task> findAllTasks(){
         return taskDao.findAllTasks();
+    }
+    public void saveRecord(String title){
+        taskDao.saveTask(new Task(title, TaskStatus.ACTIVE));
     }
 }

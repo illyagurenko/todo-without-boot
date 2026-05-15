@@ -19,4 +19,8 @@ public class TaskDao {
     public List<Task> findAllTasks() {
         return new ArrayList<>(tasks);
     }
+    public void saveTask(Task task){
+        tasks.add(task);
+    }
+
 }

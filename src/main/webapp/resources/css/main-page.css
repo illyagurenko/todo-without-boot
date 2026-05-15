@@ -162,6 +162,10 @@ button:hover {
     margin-left: 10px;
 }
 
+.task__title_strikethrough {
+    text-decoration: line-through;
+}
+
 .management-container {
     margin-top: 8px;
 }
