@@ -21,6 +21,17 @@ public class TaskService {
         return taskDao.findAllTasks();
     }
     public void saveRecord(String title){
-        taskDao.saveTask(new Task(title, TaskStatus.ACTIVE));
+        if(!title.isBlank()){
+            taskDao.saveTask(new Task(title, TaskStatus.ACTIVE));
+        }
+
+    }
+
+    public void updateTaskStatus(int id, TaskStatus status){
+        taskDao.updateTaskStatus(id, status);
+    }
+
+    public void deleteTask(int id){
+        taskDao.deleteTask(id);
     }
 }

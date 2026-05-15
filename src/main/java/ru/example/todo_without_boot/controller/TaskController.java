@@ -45,4 +45,18 @@ public class TaskController {
         return "redirect:/home";
 
     }
+
+    @RequestMapping(value = "/make-task-done", method = RequestMethod.POST)
+    public String makeTaskDone(@RequestParam("id") int id){
+        taskService.updateTaskStatus(id, TaskStatus.DONE);
+        return "redirect:/home";
+
+    }
+
+    @RequestMapping(value = "/delete-task", method = RequestMethod.POST)
+    public String deleteTask(@RequestParam("id") int id){
+        taskService.deleteTask(id);
+        return "redirect:/home";
+
+    }
 }
