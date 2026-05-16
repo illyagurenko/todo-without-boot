@@ -27,8 +27,8 @@ public class TaskController {
     }
 
     @RequestMapping("/home")
-    public String getMainPage(Model model){
-        List<Task> tasks = taskService.findAllTasks();
+    public String getMainPage(Model model, @RequestParam(name = "filter", required = false) String filterMode){
+        List<Task> tasks = taskService.findAllTasks(filterMode);
         int numOfDoneTasks = (int)tasks.stream()
                         .filter(task -> task.getStatus() == TaskStatus.DONE).count();
         int numOfActiveTasks = (int)tasks.stream()
