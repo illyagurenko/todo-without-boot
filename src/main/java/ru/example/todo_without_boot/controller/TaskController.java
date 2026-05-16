@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.example.todo_without_boot.entity.Task;
 import ru.example.todo_without_boot.entity.TaskStatus;
+import ru.example.todo_without_boot.entity.dto.TaskContainerDto;
 import ru.example.todo_without_boot.service.TaskService;
 
 import java.util.List;
@@ -28,14 +29,11 @@ public class TaskController {
 
     @RequestMapping("/home")
     public String getMainPage(Model model, @RequestParam(name = "filter", required = false) String filterMode){
-        List<Task> tasks = taskService.findAllTasks(filterMode);
-        int numOfDoneTasks = (int)tasks.stream()
-                        .filter(task -> task.getStatus() == TaskStatus.DONE).count();
-        int numOfActiveTasks = (int)tasks.stream()
-                .filter(task -> task.getStatus() == TaskStatus.ACTIVE).count();
-        model.addAttribute("tasks", tasks);
-        model.addAttribute("numOfDoneTasks", numOfDoneTasks);
-        model.addAttribute("numOfActiveTasks", numOfActiveTasks);
+        TaskContainerDto containerDto = taskService.findAllTasks(filterMode);
+
+        model.addAttribute("tasks", containerDto.getTasks());
+        model.addAttribute("numOfDoneTasks", containerDto.getNumberOfDoneTasks());
+        model.addAttribute("numOfActiveTasks", containerDto.getNumberOfActiveTasks());
         return "main-page";
     }
 
@@ -47,16 +45,16 @@ public class TaskController {
     }
 
     @RequestMapping(value = "/make-task-done", method = RequestMethod.POST)
-    public String makeTaskDone(@RequestParam("id") int id){
+    public String makeTaskDone(@RequestParam("id") int id, @RequestParam(name = "filter", required = false) String filterMode){
         taskService.updateTaskStatus(id, TaskStatus.DONE);
-        return "redirect:/home";
+        return "redirect:/home" + (filterMode != null && !filterMode.isBlank() ? "?filter=" + filterMode : "");
 
     }
 
     @RequestMapping(value = "/delete-task", method = RequestMethod.POST)
-    public String deleteTask(@RequestParam("id") int id){
+    public String deleteTask(@RequestParam("id") int id, @RequestParam(name = "filter", required = false) String filterMode){
         taskService.deleteTask(id);
-        return "redirect:/home";
+        return "redirect:/home" + (filterMode != null && !filterMode.isBlank() ? "?filter=" + filterMode : "");
 
     }
 }
