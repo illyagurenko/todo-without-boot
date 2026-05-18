@@ -1,15 +1,25 @@
 package ru.example.todo_without_boot.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tasks")
 public class Task {
-    private static int counterSequence = 0;
-    private final int id;
-    private final String title;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "title", nullable = false, length = 100)
+    private String title;
+    @Column(name = "status", nullable = false)
     private TaskStatus status;
 
-    public Task( String title, TaskStatus status) {
-        this.id = counterSequence++;
+    public Task(String title) {
         this.title = title;
-        this.status = status;
+        this.status = TaskStatus.ACTIVE;
+    }
+
+    public Task() {
+
     }
 
     public String getTitle() {
@@ -26,5 +36,13 @@ public class Task {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

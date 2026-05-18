@@ -48,7 +48,6 @@
                                         <form action="/make-task-done" method="post" class="task__controls-form">
                                             <input type="hidden" name="id" value="${task.id}">
                                             <input type="hidden" name="filter" value="${fn:toLowerCase(param.filter)}">
-
                                             <button type="submit" class="button_type_approve">
                                                 <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g clip-path="url(#clip0_258_5036)">

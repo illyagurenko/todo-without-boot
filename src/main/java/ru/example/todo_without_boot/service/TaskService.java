@@ -47,7 +47,7 @@ public class TaskService {
     }
     public void saveRecord(String title){
         if(title != null && !title.isBlank()){
-            taskDao.saveTask(new Task(title, TaskStatus.ACTIVE));
+            taskDao.saveTask(new Task(title));
         }
 
     }
