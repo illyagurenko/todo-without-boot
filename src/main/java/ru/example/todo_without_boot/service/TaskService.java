@@ -1,5 +1,6 @@
 package ru.example.todo_without_boot.service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.example.todo_without_boot.dao.TaskDao;
@@ -13,6 +14,7 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class TaskService {
     private final TaskDao taskDao;
 
