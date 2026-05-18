@@ -15,21 +15,29 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- Отключаем ошибку отсутствия web.xml, так как мы используем Java-конфигурацию -->
 		<failOnMissingWebXml>false</failOnMissingWebXml>
-		<version-spring-mvc>7.0.7</version-spring-mvc>
+		<version-spring>7.0.7</version-spring>
 		<version-jakarta-servlet>6.1.0</version-jakarta-servlet>
 		<version-jstl>1.2</version-jstl>
 	</properties>
 
 	<dependencies>
-		<!-- Spring MVC -->
+		<!-- spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${version-spring-mvc}</version>
+			<version>${version-spring}</version>
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Jakarta Servlet API -->
+		<!-- spring-orm -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${version-spring}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- jakarta Servlet API -->
 		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
@@ -47,6 +55,30 @@
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 			<version>3.0.1</version>
+		</dependency>
+
+		<!-- hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>7.3.4.Final</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- jakarta.persistence-api -->
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>3.2.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.7.11</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
